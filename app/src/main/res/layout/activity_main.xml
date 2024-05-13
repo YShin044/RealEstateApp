@@ -195,16 +195,6 @@
                         android:layout_gravity="center"
                         android:background="@drawable/oval_background">
 
-                        <ImageView
-                            android:id="@+id/imageView53"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/oval_background"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/cat_3" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
@@ -331,6 +321,13 @@
                 android:clipToPadding="false"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp" />
+
+            <ImageView
+                android:id="@+id/imageView53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/oval_background"
+                app:srcCompat="@drawable/cat_3" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
