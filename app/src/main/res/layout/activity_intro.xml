@@ -37,7 +37,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Quangne Dream House"
+                android:text="Perfect Dream House"
                 android:textSize="31sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
