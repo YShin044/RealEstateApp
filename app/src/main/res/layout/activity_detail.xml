@@ -34,6 +34,18 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/h_2" />
 
+                <ToggleButton
+                    android:layout_width="34dp"
+                    android:layout_height="32dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff=""
+                    android:textOn=""
+                    app:layout_constraintBottom_toBottomOf="@+id/picDetail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.863"
+                    app:layout_constraintStart_toStartOf="parent" />
+
                 <ImageView
                     android:id="@+id/backBtn"
                     android:layout_width="45dp"
