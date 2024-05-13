@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-    asdawfawfsgefwadwadwa
     private RecyclerView.Adapter adapterRecommended,adapterNearby;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
