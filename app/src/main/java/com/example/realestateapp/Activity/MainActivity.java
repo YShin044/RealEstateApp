@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 
 import com.example.realestateapp.Adapter.NearbyAdapter;
 import com.example.realestateapp.Adapter.RecommendedAdapter;
@@ -27,6 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
         initLocation();
         initRecycleView();
+        bottomNavigation();
+    }
+    private void bottomNavigation() {
+        LinearLayout linearLayout = findViewById(R.id.FAVBtn);
+        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+
+        linearLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FavoriteList.class)));
+        homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
     }
 
     private void initRecycleView() {
