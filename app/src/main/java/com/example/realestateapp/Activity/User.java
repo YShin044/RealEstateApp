@@ -40,6 +40,13 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
+    public User(int id, String username, String password, String avatar) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.avatar = avatar;
+    }
+
     @Override
     public String toString() {
         return "User{" +

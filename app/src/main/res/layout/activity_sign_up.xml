@@ -3,20 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Activity.SignUpActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/linearLayoutSignUp"
         android:layout_width="355dp"
-        android:layout_height="380dp"
+        android:layout_height="500dp"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avtIMG"
+            android:layout_width="175dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:background="@drawable/back_background"
+            android:soundEffectsEnabled="false"
+            android:src="@drawable/btn_5" />
 
         <TextView
             android:id="@+id/textView7"
@@ -32,7 +43,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/UsernameTxt"
+            android:id="@+id/UsernameTxt_SignUp"
             android:layout_width="match_parent"
             android:layout_height="11dp"
             android:layout_weight="1"
@@ -56,7 +67,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/PasswordTxt"
+            android:id="@+id/PasswordTxt_SignUp"
             android:layout_width="match_parent"
             android:layout_height="11dp"
             android:layout_weight="1"
@@ -66,41 +77,17 @@
             android:inputType="textPassword"
             android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/SignupTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Already have an account? Sign up"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textStyle="italic"/>
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="end"
-            android:text="Forgot password?"
-            android:textSize="16sp"
-            android:textColor="@color/blue"
-            android:textStyle="bold" />
-
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/loginBtn"
+            android:id="@+id/signBtn"
             style="@android:style/Widget.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:background="@drawable/button_background"
-            android:text="Log in"
+            android:text="Sign up"
             android:textColor="@color/white"
             android:textSize="21sp"
             android:textStyle="bold" />
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -21,11 +25,15 @@ public interface ApiService {
             .create();
 
     ApiService apiService = new Retrofit.Builder()
-            .baseUrl("http://172.16.31.89:8810/api/")
+            .baseUrl("http://192.168.1.170:8810/api/")
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ApiService.class);
 
     @GET("uploadimage")
     Call<List<User>> getListUsers();
+    //@FormUrlEncoded
+    @POST("uploadimage")
+    //Call<User> sendUser(@Field("id") int id, @Field("username") String username, @Field("password") String password,@Field("avatar") String avatar);
+    Call<User> sendUser(@Body User user);
 }
