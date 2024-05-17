@@ -2,7 +2,9 @@
 package com.example.realestateapp.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,17 +15,22 @@ import com.example.realestateapp.databinding.ActivityDetailBinding;
 import com.example.realestateapp.databinding.ActivityMainBinding;
 
 public class DetailActivity extends AppCompatActivity {
+    private ConstraintLayout addBtn;
     ActivityDetailBinding binding;
     private PropertyDomain object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         binding = ActivityDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         getBundles();
-        setVariable();
+        Booking();
+    }
+    private void Booking(){
+        binding.addBtn.setOnClickListener(v -> startActivity(new Intent(DetailActivity.this,BookActivity.class)));
     }
 
     private void setVariable() {
@@ -54,4 +61,5 @@ public class DetailActivity extends AppCompatActivity {
     private void getBundles() {
         object = (PropertyDomain) getIntent().getSerializableExtra("object");
     }
+
 }
