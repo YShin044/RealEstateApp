@@ -28,6 +28,7 @@ public class DetailActivity extends AppCompatActivity {
 
         getBundles();
         Booking();
+        setVariable();
     }
     private void Booking(){
         binding.addBtn.setOnClickListener(v -> startActivity(new Intent(DetailActivity.this,BookActivity.class)));
