@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class PropertyDomain implements Serializable {
     private String title;
+    private String resource;
     private String type;
     private String address;
     private String description;
@@ -13,6 +14,7 @@ public class PropertyDomain implements Serializable {
     private int bath;
     private boolean wifi;
     private double score;
+    private String pic;
 
     public PropertyDomain(String type, String title, String address, String picPath, int price, int bed, int bath, boolean wifi, double score, String description) {
         this.title = title;
@@ -25,6 +27,7 @@ public class PropertyDomain implements Serializable {
         this.bath = bath;
         this.wifi = wifi;
         this.score = score;
+        this.resource = resource;
     }
 
     public String getTitle() {
@@ -105,5 +108,12 @@ public class PropertyDomain implements Serializable {
 
     public void setScore(double score) {
         this.score = score;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+    public String getResource() {
+        return resource;
     }
 }
