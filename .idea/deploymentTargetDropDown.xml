@@ -21,6 +21,9 @@
           <timeTargetWasSelectedWithDropDown value="2024-05-17T02:38:43.296181600Z" />
         </State>
       </entry>
+      <entry key="LoginActivity">
+        <State />
+      </entry>
       <entry key="MainActivity">
         <State>
           <targetSelectedWithDropDown>
@@ -36,6 +39,9 @@
           </targetSelectedWithDropDown>
           <timeTargetWasSelectedWithDropDown value="2024-05-15T07:45:48.887083300Z" />
         </State>
+      </entry>
+      <entry key="SignUpActivity">
+        <State />
       </entry>
     </value>
   </component>
