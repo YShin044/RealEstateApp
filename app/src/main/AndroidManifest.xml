@@ -25,9 +25,6 @@
             android:name=".Activity.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.BookActivity"
-            android:exported="false" />
-        <activity
             android:name=".Activity.FavoriteList"
             android:exported="false" />
         <activity
