@@ -1,18 +1,14 @@
 
 package com.example.realestateapp.Activity;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-
 import com.bumptech.glide.Glide;
 import com.example.realestateapp.Domain.PropertyDomain;
-import com.example.realestateapp.R;
 import com.example.realestateapp.databinding.ActivityDetailBinding;
-import com.example.realestateapp.databinding.ActivityMainBinding;
 
 public class DetailActivity extends AppCompatActivity {
     private ConstraintLayout addBtn;
@@ -27,11 +23,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getBundles();
-        Booking();
         setVariable();
-    }
-    private void Booking(){
-        binding.addBtn.setOnClickListener(v -> startActivity(new Intent(DetailActivity.this,BookActivity.class)));
     }
 
     private void setVariable() {

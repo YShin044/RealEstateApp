@@ -28,6 +28,7 @@ public class PropertyDomain implements Serializable {
         this.wifi = wifi;
         this.score = score;
         this.resource = resource;
+        this.pic = pic;
     }
 
     public String getTitle() {
@@ -82,6 +83,15 @@ public class PropertyDomain implements Serializable {
         return bed;
     }
 
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+
     public void setBed(int bed) {
         this.bed = bed;
     }
@@ -110,9 +120,6 @@ public class PropertyDomain implements Serializable {
         this.score = score;
     }
 
-    public String getPic() {
-        return pic;
-    }
     public String getResource() {
         return resource;
     }

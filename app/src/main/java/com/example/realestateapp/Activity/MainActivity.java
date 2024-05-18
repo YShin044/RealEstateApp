@@ -1,15 +1,13 @@
 package com.example.realestateapp.Activity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 
 import com.example.realestateapp.Adapter.NearbyAdapter;
 import com.example.realestateapp.Adapter.RecommendedAdapter;
@@ -56,17 +54,17 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
-    private void Post_Favorite() {
-        LinearLayout linearLayoutp = findViewById(R.id.FAVBtn);
-        LinearLayout PostBtn = findViewById(R.id.PostBtn);
-
-        linearLayoutp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FavoriteList.class)));
-        PostBtn.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
-        });
-    }
+//    private void Post_Favorite() {
+//        LinearLayout linearLayoutp = findViewById(R.id.FAVBtn);
+//        LinearLayout PostBtn = findViewById(R.id.PostBtn);
+//
+//        linearLayoutp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FavoriteList.class)));
+//        PostBtn.setOnClickListener(v -> {
+//            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+//            startActivity(intent);
+//        });
+//    }
     private void initRecycleView() {
         ArrayList<PropertyDomain> items = new ArrayList<>();
         items.add(new PropertyDomain("Apartment","Royal Apartment","District 1 VN","h_1",20000,3,3,true,4.5,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
