@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.realestateapp.Adapter.NearbyAdapter;
@@ -30,20 +31,42 @@ public class MainActivity extends AppCompatActivity {
 
         initLocation();
         initRecycleView();
-        bottomNavigation();
+        Home_Favorite();
+        Home_Post();
     }
-    private void bottomNavigation() {
-        LinearLayout linearLayout = findViewById(R.id.FAVBtn);
+    private void Home_Favorite() {
+        LinearLayout linearLayoutf = findViewById(R.id.FAVBtn);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
 
-        linearLayout.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FavoriteList.class)));
+        linearLayoutf.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FavoriteList.class)));
         homeBtn.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             startActivity(intent);
         });
     }
+    private void Home_Post() {
+        LinearLayout linearLayoutp = findViewById(R.id.PostBtn);
+        LinearLayout homeBtn = findViewById(R.id.homeBtn);
 
+        linearLayoutp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Post.class)));
+        homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
+    }
+    private void Post_Favorite() {
+        LinearLayout linearLayoutp = findViewById(R.id.FAVBtn);
+        LinearLayout PostBtn = findViewById(R.id.PostBtn);
+
+        linearLayoutp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FavoriteList.class)));
+        PostBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
+    }
     private void initRecycleView() {
         ArrayList<PropertyDomain> items = new ArrayList<>();
         items.add(new PropertyDomain("Apartment","Royal Apartment","District 1 VN","h_1",20000,3,3,true,4.5,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));

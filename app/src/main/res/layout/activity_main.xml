@@ -368,10 +368,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/PostBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <ImageView
                     android:id="@+id/imageView66"
