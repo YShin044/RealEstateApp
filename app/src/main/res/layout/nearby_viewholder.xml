@@ -22,17 +22,6 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.circleImageView"
         app:srcCompat="@drawable/h_1" />
 
-    <ToggleButton
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/toggle_selector"
-        android:textOff=""
-        android:textOn=""
-        app:layout_constraintBottom_toBottomOf="@+id/pic"
-        app:layout_constraintEnd_toEndOf="@+id/pic" />
-
     <TextView
         android:id="@+id/typeTxt"
         android:layout_width="wrap_content"
