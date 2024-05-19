@@ -3,6 +3,7 @@ package com.example.realestateapp.Domain;
 import java.io.Serializable;
 
 public class PropertyDomain implements Serializable {
+    private int id;
     private String title;
     private String resource;
     private String type;
@@ -17,6 +18,7 @@ public class PropertyDomain implements Serializable {
     private String pic;
 
     public PropertyDomain(String type, String title, String address, String picPath, int price, int bed, int bath, boolean wifi, double score, String description) {
+
         this.title = title;
         this.type = type;
         this.address = address;
@@ -32,6 +34,14 @@ public class PropertyDomain implements Serializable {
 
     public String getTitle() {
         return title;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {

@@ -17,10 +17,13 @@ import com.example.realestateapp.R;
 import com.example.realestateapp.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private RecyclerView.Adapter adapterRecommended,adapterNearby;
+
+    ArrayList<PropertyDomain> items = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +31,13 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         initLocation();
         initRecycleView();
         bottomNavigation();
+        clickSearch();
+
+
     }
     private void bottomNavigation() {
         LinearLayout linearLayout = findViewById(R.id.FAVBtn);
@@ -45,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initRecycleView() {
-        ArrayList<PropertyDomain> items = new ArrayList<>();
-        items.add(new PropertyDomain("Apartment","Royal Apartment","District 1 VN","h_1",20000,3,3,true,4.5,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
-        items.add(new PropertyDomain("House","House With Great View","District 2 VN","h_2",800,2,2,false,4.9,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
-        items.add(new PropertyDomain("Villa","Classic Villa","District 2 VN","h_3",15000,6,5,true,4.8,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
+
+            items.add(new PropertyDomain("Apartment","Royal Apartment","District 1 VN","h_1",20000,3,3,true,4.5,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
+            items.add(new PropertyDomain("House","House With Great View","District 2 VN","h_2",800,2,2,false,4.9,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
+            items.add(new PropertyDomain("Villa","Classic Villa","District 2 VN","h_3",15000,6,5,true,4.8,"This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling. "));
+
 
         binding.recommendView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         adapterRecommended = new RecommendedAdapter(items);
@@ -66,5 +74,32 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         binding.locationSpin.setAdapter(adapter);
+    }
+
+    private void clickSearch(){
+        binding.searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchEDT();
+            }
+        });
+    }
+
+    private void searchEDT() {
+
+        String content = binding.searchEdt.getText().toString().toLowerCase();
+        ArrayList<PropertyDomain> tmp = new ArrayList<>();
+        for (PropertyDomain x : items){
+            if (x.getTitle().toLowerCase().contains(content)){
+                    // Thêm các phần tử vào danh sách dataList
+                tmp.add(x);
+
+            }
+        }
+        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+        intent.putExtra("dataList", tmp);
+        startActivity(intent);
+
+
     }
 }

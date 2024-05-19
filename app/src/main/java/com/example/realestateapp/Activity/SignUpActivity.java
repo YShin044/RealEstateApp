@@ -44,7 +44,7 @@ public class SignUpActivity extends AppCompatActivity {
         ApiService.apiService.sendUser(user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(SignUpActivity.this, "Call api Success ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUpActivity.this, "Sign Up Success ", Toast.LENGTH_SHORT).show();
 
             }
             @Override
@@ -57,8 +57,10 @@ public class SignUpActivity extends AppCompatActivity {
     private void clickSign() {
         String strUsername = binding.UsernameTxtSignUp.getText().toString().trim();
         String strPassword = binding.PasswordTxtSignUp.getText().toString().trim();
+        String strName = binding.NameTxtSignUp.getText().toString().trim();
+        String strPhoneNumber = binding.PhoneNumberTxtSignUp.getText().toString().trim();
 
-        User user = new User(5, strUsername, strPassword,"3.png");
+        User user = new User(5, strUsername, strPassword,"3.png", strName,strPhoneNumber);
         sendUser(user);
     }
 }

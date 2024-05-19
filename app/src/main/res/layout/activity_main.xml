@@ -65,7 +65,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/search_edt"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
@@ -79,9 +79,10 @@
                 android:padding="8dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/searchBtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:background="@drawable/blue_background">
+                android:background="@drawable/back_background">
 
                 <ImageView
                     android:id="@+id/imageView4"
@@ -91,7 +92,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/settings" />
+                    app:srcCompat="@drawable/search_icon" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
