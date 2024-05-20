@@ -22,10 +22,10 @@
             android:name=".Activity.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ProfileActivity"
+            android:name=".Activity.Post"
             android:exported="false" />
         <activity
-            android:name=".Activity.Post"
+            android:name=".Activity.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.DetailActivity"
