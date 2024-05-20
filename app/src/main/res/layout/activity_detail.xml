@@ -243,6 +243,19 @@ architectural feature and high end finished.
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <TextView
+            android:id="@+id/hotLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hot Line:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addBtn"
+            app:layout_constraintStart_toEndOf="@+id/priceTxt"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addBtn"
             android:layout_width="180dp"
@@ -253,7 +266,7 @@ architectural feature and high end finished.
             android:textSize="20sp"
 
             android:layout_marginEnd="24dp"
-            android:text="Book now"
+            android:text="0335909874"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

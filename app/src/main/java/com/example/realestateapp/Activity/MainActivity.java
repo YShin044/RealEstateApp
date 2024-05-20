@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         Home_Favorite();
         Home_Post();
         clickSearch();
+        clickTypeButtons();
+        Home();
     }
 
     private void Home_Favorite() {
@@ -76,7 +79,11 @@ public class MainActivity extends AppCompatActivity {
         binding.nearbyView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         adapterNearby = new NearbyAdapter(filteredItems);
         binding.nearbyView.setAdapter(adapterNearby);
+
+        // Thêm dòng này để cập nhật lại danh sách bất động sản gần đây sau khi chọn quận mới
+        filterItemsByDistrict(binding.locationSpin.getSelectedItem().toString());
     }
+
 
     private void initLocation() {
         // Thêm tùy chọn "All" vào mảng items
@@ -103,20 +110,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void filterItemsByDistrict(String district) {
         filteredItems.clear();
-        if (district.equals("All")) {
-            // Nếu chọn "All", hiển thị tất cả các mục
-            filteredItems.addAll(items);
-        } else {
-            // Lọc các mục theo quận được chọn
-            for (PropertyDomain item : items) {
-                if (item.getAddress().contains(district)) {
-                    filteredItems.add(item);
-                }
+        for (PropertyDomain item : items) {
+            if (district.equals("All") || item.getAddress().toLowerCase().contains(district.toLowerCase())) {
+                filteredItems.add(item);
             }
         }
-        adapterRecommended.notifyDataSetChanged();
-        adapterNearby.notifyDataSetChanged();
+        // Update the adapter for the nearby RecyclerView
+        if (adapterNearby != null) {
+            adapterNearby.notifyDataSetChanged();
+        }
+        // Update the adapter for the recommended RecyclerView
+        if (adapterRecommended != null) {
+            adapterRecommended.notifyDataSetChanged();
+        }
     }
+
+
 
     private void clickSearch() {
         binding.searchBtn.setOnClickListener(v -> searchEDT());
@@ -134,4 +143,64 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("dataList", tmp);
         startActivity(intent);
     }
+    private void clickTypeButtons() {
+        LinearLayout apartmentBtn = findViewById(R.id.apartmentBtn);
+        LinearLayout villaBtn = findViewById(R.id.villaBtn);
+
+        apartmentBtn.setOnClickListener(v -> filterItemsByType("Apartment"));
+        villaBtn.setOnClickListener(v -> filterItemsByType("Villa"));
+    }
+
+    private void filterItemsByType(String type) {
+        filteredItems.clear();
+        for (PropertyDomain item : items) {
+            if (item.getType().equals(type)) {
+                filteredItems.add(item);
+            }
+        }
+
+        // Update the adapter for the recommended RecyclerView
+        if (adapterRecommended != null) {
+            adapterRecommended = new RecommendedAdapter(filteredItems);
+            binding.recommendView.setAdapter(adapterRecommended);
+        }
+
+        // Update the adapter for the nearby RecyclerView
+        if (adapterNearby != null) {
+            adapterNearby = new NearbyAdapter(filteredItems);
+            binding.nearbyView.setAdapter(adapterNearby);
+        }
+
+        // Notify the adapters of the data change
+        if (adapterRecommended != null) {
+            adapterRecommended.notifyDataSetChanged();
+        }
+        if (adapterNearby != null) {
+            adapterNearby.notifyDataSetChanged();
+        }
+    }
+    private void Home() {
+        LinearLayout homeBtn = findViewById(R.id.homeLBtn);
+
+        homeBtn.setOnClickListener(v -> {
+            // Reload all items
+            filteredItems.clear();
+            filteredItems.addAll(items);
+
+            // Update the adapter for the recommended RecyclerView
+            if (adapterRecommended != null) {
+                adapterRecommended = new RecommendedAdapter(filteredItems);
+                binding.recommendView.setAdapter(adapterRecommended);
+                adapterRecommended.notifyDataSetChanged();
+            }
+
+            // Update the adapter for the nearby RecyclerView
+            if (adapterNearby != null) {
+                adapterNearby = new NearbyAdapter(filteredItems);
+                binding.nearbyView.setAdapter(adapterNearby);
+                adapterNearby.notifyDataSetChanged();
+            }
+        });
+    }
+
 }

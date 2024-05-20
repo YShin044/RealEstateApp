@@ -107,6 +107,7 @@
             tools:layout_marginEnd="4dp">
 
             <LinearLayout
+                android:id="@+id/homeLBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -144,6 +145,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/apartmentBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -181,6 +183,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/villaBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
