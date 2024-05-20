@@ -6,12 +6,17 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:id="@+id/linearLayout2"
-        android:layout_width="347dp"
-        android:layout_height="373dp"
+        android:layout_width="349dp"
+        android:layout_height="444dp"
+        android:paddingBottom="20dp"
         android:layout_marginStart="34dp"
         android:layout_marginTop="264dp"
         android:layout_marginEnd="24dp"
+        android:background="@drawable/grey_background"
+        android:elevation="11dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,7 +31,7 @@
             android:gravity="center_vertical"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="USERNAME"
+            android:text="Sign In"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -44,18 +49,6 @@
             android:paddingLeft="20dp"
             android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="269dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="PASSWORD"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/PasswordTxt"
@@ -66,6 +59,7 @@
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="password"
+            android:layout_marginTop="10dp"
             android:inputType="textPassword"
             android:paddingLeft="20dp"
             android:textSize="22sp" />
@@ -108,8 +102,9 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="411dp"
-        android:layout_height="737dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/loginbackground2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -119,12 +114,16 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="real estate"
+            android:layout_marginTop="168dp"
+            android:text="Real Estates"
+            android:textColor="@color/white"
             android:textSize="40dp"
-            android:textStyle="bold"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.553"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
