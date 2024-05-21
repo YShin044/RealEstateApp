@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.realestateapp.Adapter.NearbyAdapter;
 import com.example.realestateapp.Adapter.RecommendedAdapter;
@@ -145,12 +147,39 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("dataList", tmp);
         startActivity(intent);
     }
+
     private void clickTypeButtons() {
         LinearLayout apartmentBtn = findViewById(R.id.apartmentBtn);
         LinearLayout villaBtn = findViewById(R.id.villaBtn);
+        TextView see1 = findViewById(R.id.see1);
+        TextView see2 = findViewById(R.id.see2);
 
         apartmentBtn.setOnClickListener(v -> filterItemsByType("Apartment"));
         villaBtn.setOnClickListener(v -> filterItemsByType("Villa"));
+        see1.setOnClickListener(v -> {
+            // Reload all items
+            filteredItems.clear();
+            filteredItems.addAll(items);
+
+            // Update the adapter for the recommended RecyclerView
+            if (adapterRecommended != null) {
+                adapterRecommended = new RecommendedAdapter(filteredItems);
+                binding.recommendView.setAdapter(adapterRecommended);
+                adapterRecommended.notifyDataSetChanged();
+            }
+        });
+        see2.setOnClickListener(v -> {
+            // Reload all items
+            filteredItems.clear();
+            filteredItems.addAll(items);
+
+            // Update the adapter for the nearby RecyclerView
+            if (adapterNearby != null) {
+                adapterNearby = new NearbyAdapter(filteredItems);
+                binding.nearbyView.setAdapter(adapterNearby);
+                adapterNearby.notifyDataSetChanged();
+            }
+        });
     }
 
     private void filterItemsByType(String type) {
@@ -182,26 +211,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private void Home() {
-        LinearLayout homeBtn = findViewById(R.id.homeLBtn);
+        LinearLayout homeLBtn = findViewById(R.id.homeLBtn);
 
-        homeBtn.setOnClickListener(v -> {
-            // Reload all items
-            filteredItems.clear();
-            filteredItems.addAll(items);
-
-            // Update the adapter for the recommended RecyclerView
-            if (adapterRecommended != null) {
-                adapterRecommended = new RecommendedAdapter(filteredItems);
-                binding.recommendView.setAdapter(adapterRecommended);
-                adapterRecommended.notifyDataSetChanged();
-            }
-
-            // Update the adapter for the nearby RecyclerView
-            if (adapterNearby != null) {
-                adapterNearby = new NearbyAdapter(filteredItems);
-                binding.nearbyView.setAdapter(adapterNearby);
-                adapterNearby.notifyDataSetChanged();
-            }
+        homeLBtn.setOnClickListener(v -> {
+            // Filter items by type "House"
+            filterItemsByType("House");
         });
     }
 

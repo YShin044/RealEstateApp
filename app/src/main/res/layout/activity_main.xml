@@ -277,9 +277,9 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView81"
+                android:id="@+id/see1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="22dp"
                 android:text="See all"
                 android:textColor="@color/blue"
 
@@ -314,9 +314,9 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView82"
+                android:id="@+id/see2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="22dp"
                 android:text="See all"
                 android:textColor="@color/blue"
 
