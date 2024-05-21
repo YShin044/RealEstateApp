@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         initLocation();
         initRecycleView();
         Home_Favorite();
-//        Home_Post();
+        Home_Post();
         clickSearch();
         clickTypeButtons();
         Home();
@@ -57,17 +57,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    private void Home_Post() {
-//        LinearLayout linearLayoutp = findViewById(R.id.PostBtn);
-//        LinearLayout homeBtn = findViewById(R.id.homeBtn);
-//
-//        linearLayoutp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Post.class)));
-//        homeBtn.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-//            startActivity(intent);
-//        });
-//    }
+    private void Home_Post() {
+        LinearLayout linearLayoutp = findViewById(R.id.PostBtn);
+        LinearLayout homeBtn = findViewById(R.id.homeBtn);
+
+        linearLayoutp.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Post.class)));
+        homeBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+        });
+    }
 
     private void initRecycleView() {
         items.add(new PropertyDomain("Apartment", "Royal Apartment", "District 1 VN", "h_1", 20000, 3, 3, true, 4.5, "This 2 bed /1 bath home boast enormous, open-living room plan, accented by striking architectural features and high end finishes. Feel inspired by open sight line that embrace the outdoors, crowned by stunning coffered ceiling."));

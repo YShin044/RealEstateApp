@@ -23,8 +23,7 @@ public class Post extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
-        initView();
-        initList();
+       initView();
         bottomNavigation();
     }
     private void bottomNavigation() {
@@ -50,10 +49,6 @@ public class Post extends AppCompatActivity {
         emptyTxt = findViewById(R.id.emptyTxt);
         scrollView = findViewById(R.id.scrollview3);
         recyclerViewList = findViewById(R.id.favoriteview);
-    }
-    private void initList(){
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        recyclerViewList.setLayoutManager(linearLayoutManager);
     }
     private void setupBottomNavigation() {
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
